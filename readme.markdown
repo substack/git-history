@@ -2,6 +2,8 @@
 
 stream of history objects of a git repo
 
+[![build status](https://secure.travis-ci.org/substack/git-history.png)](http://travis-ci.org/substack/git-history)
+
 # example
 
 ``` js
