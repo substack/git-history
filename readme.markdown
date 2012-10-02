@@ -41,6 +41,9 @@ var history = require('git-history')
 Return a stream of `'data'` events with commit objects of all the commit
 properties.
 
+If you pipe to the stream on the present tick you can pipe `git log` data
+directly to this parser. Otherwise `git log` will be called automatically.
+
 If specified, limit the objects emitted to be between `since` and `until` as
 [revisions](http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html).
 
