@@ -1,0 +1,38 @@
+{
+    "name" : "git-history",
+    "version" : "0.0.0",
+    "description" : "stream git history",
+    "main" : "index.js",
+    "directories" : {
+        "example" : "example",
+        "test" : "test"
+    },
+    "dependencies" : {
+        "comandante" : "~0.0.0",
+        "through" : "~1.1.0",
+        "event-stream" : "~3.0.7"
+    },
+    "devDependencies" : {
+        "tap" : "~0.3.0"
+    },
+    "scripts" : {
+        "test" : "tap test/*.js"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/substack/git-history.git"
+    },
+    "homepage" : "https://github.com/substack/git-history",
+    "keywords" : [
+        "git",
+        "history",
+        "commit",
+        "repo"
+    ],
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    },
+    "license" : "MIT"
+}
