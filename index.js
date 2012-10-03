@@ -2,7 +2,7 @@ var split = require('event-stream').split;
 var run = require('comandante');
 var through = require('through');
 
-exports = module.exports = function (since, until) {
+exports = module.exports = function (since, until, opts) {
     var data = '';
     var sp = split();
     var tr = through(write, end);
@@ -14,7 +14,7 @@ exports = module.exports = function (since, until) {
     });
     
     process.nextTick(function () {
-        if (!piped) history(since, until).pipe(sp);
+        if (!piped) history(since, until, opts).pipe(sp);
     });
     
     var commit = null;
@@ -47,11 +47,23 @@ exports = module.exports = function (since, until) {
     }
 };
 
-function history (since, until) {
+function history (since, until, opts) {
+    if (typeof since === 'object') {
+        opts = since;
+        since = undefined;
+    }
+    if (typeof until === 'object') {
+        opts = until;
+        until = undefined;
+    }
+    
     if (since === undefined) {
-        return run('git', [ 'log' ]);
+        return run('git', [ 'log' ], opts);
     }
     else {
-        return run('git', [ 'log', (since || '') + '..' + (until || '') ]);
+        return run('git',
+            [ 'log', (since || '') + '..' + (until || '') ],
+            opts
+        );
     }
 }
