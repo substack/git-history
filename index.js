@@ -36,8 +36,8 @@ exports = module.exports = function (since, until, opts) {
         else if (m = /^Date:\s+(.+)/.exec(line)) {
             commit.date = new Date(m[1]);
         }
-        else if (m = /^\s+(.+)/.exec(line)) {
-            commit.message = m[1];
+        else if (m = /^\s+(\S.+)/.exec(line)) {
+            commit.message = commit.message ? commit.message + '\n' +  m[1] : m[1];
         }
     }
     
