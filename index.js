@@ -36,6 +36,14 @@ exports = module.exports = function (since, until, opts) {
         else if (m = /^Date:\s+(.+)/.exec(line)) {
             commit.date = new Date(m[1]);
         }
+        else if (m = /^\s+git\-svn\-id:\s(.+)$/.exec(line)) {
+            var svn = m[1].split(/[@\s]/);
+            commit.svn = {
+                repo : svn[0],
+                rev : Number(svn[1]),
+                uuid : svn[2]
+            };
+        }
         else if (m = /^\s+(\S.+)/.exec(line)) {
             commit.message = commit.message ? commit.message + '\n' +  m[1] : m[1];
         }
