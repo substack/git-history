@@ -1,4 +1,4 @@
-var split = require('event-stream').split;
+var split = require('split');
 var run = require('comandante');
 var through = require('through');
 

@@ -10,7 +10,7 @@
     "dependencies" : {
         "comandante" : "~0.0.0",
         "through" : "~1.1.0",
-        "event-stream" : "~3.0.7"
+        "split" : "~0.2.10"
     },
     "devDependencies" : {
         "tap" : "~0.3.0"
